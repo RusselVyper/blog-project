@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'thinkdb',
         'USER': 'postgres',
-        'PASSWORD': 'Cg09205033cG',
+        'PASSWORD': '12345',
         'HOST': 'localhost',
         'PORT': '5432',
     }
