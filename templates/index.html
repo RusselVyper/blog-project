@@ -9,7 +9,7 @@
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">THINK BUCKET IS SIMPLY A BIN WHERE YOU CAN ALWAYS THROW YOUR IDEAS</h1>
         <p class="lead text-muted"></p>
-        <img src="{% static 'images\brain.png' %}" alt="Image File" height="300" width="300">
+        <img src="{% static 'logo\brain.png' %}" alt="Image File" height="300" width="300">
       </div>
     </div>
   </section>
@@ -18,17 +18,19 @@
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for job in jobs.all %}
         <div class="col">
           <div class="card shadow-sm">
-           <img src="{% static 'images\MidDayDreams_Logo_Blue.jpg' %}" alt="Image File"> 
+           <img src="{{ MEDIA_URL }}{{ job.images }}" alt="Image File"> 
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">{{ job.title }}</p>
               <div class="d-flex justify-content-between align-items-center">
-                  <button type="button" class="btn btn-success">Read</button>
+                <a  class="btn btn-success" class href="{% url 'blog:detail' job.id %}">Read</a>
               </div>
             </div>
           </div>
         </div>
+        {% endfor %}
             </div>
         </div>
       </div>

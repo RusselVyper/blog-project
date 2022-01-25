@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+<br>
+<h3><strong>{{blog.title}}</strong></h3>
+<br>
+<br>
+<small>Author: {{blog.author}}</small> | <small>Published: {{blog.period}}</small>
+<br>
+<br>
+<img class="img-fluid" src="{{ blog.images.url }}" alt="Image File"> 
+<br>
+<br>
+<p>{{blog.description}}</p> 
+ 
+  
+
+  
+</div>
+
+  {% endblock %}
