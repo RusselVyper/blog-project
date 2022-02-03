@@ -1,15 +1,13 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
 {% block content %}
-  
 <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">THINK BUCKET IS SIMPLY A BIN WHERE YOU CAN ALWAYS THROW YOUR IDEAS</h1>
         <p class="lead text-muted"></p>
-        <img src="{% static 'logo\brain.png' %}" alt="Image File" height="300" width="300">
+        <img src="{{static_url}}logo\brain.png" alt="Image File" height="300" width="300">
       </div>
     </div>
   </section>
@@ -21,9 +19,10 @@
         {% for job in jobs.all %}
         <div class="col">
           <div class="card shadow-sm">
-           <img src="{{ MEDIA_URL }}{{ job.images }}" alt="Image File"> 
+           <img src="{{ media_url }}{{ job.images }}" alt="Image File"> 
             <div class="card-body">
-              <p class="card-text">{{ job.title }}</p>
+              <p class="card-text"><strong>{{ job.title }}</strong></p>
+              <hr>
               <div class="d-flex justify-content-between align-items-center">
                 <a  class="btn btn-success" class href="{% url 'blog:detail' job.id %}">Read</a>
               </div>
@@ -37,4 +36,4 @@
     </div>
   </div>
 
-  {% endblock %}
+  {% endblock content %}
