@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div>
+        <h1 class="text-center mt-5">Write down your mesmerizing Ideas</h1>
+    </div>
+
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="name">Author's Name</label>
+            <input type="text" class="form-control" id="blog-author" aria-describedby="emailHelp" placeholder="Enter Authors name here" name="blog-author">
+          </div>
+         
+          <br>
+          <div class="form-group">
+            <label for="title">Blog Title</label>
+            <input type="text" class="form-control" id="blog-title" placeholder="Enter title of your BLog" name="blog-title"> 
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="file">Image File</label>
+            <input type="file" accept="image/*" class="form-control-file" id="blog-image" name="blog-image" placeholder="Enter an Image relavant to your Blog Post">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="description">BLog Description</label>
+            <textarea class="form-control" name="blog-description" id="blog-description"  cols="80" rows="10">
+            </textarea>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-dark">Submit</button>
+          <br>
+    </form>
+</div>
+{% endblock content %}
