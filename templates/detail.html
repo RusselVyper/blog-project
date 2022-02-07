@@ -1,24 +1,32 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
 {% block content %}
 <div class="container">
 <br>
 <h3><strong>{{blog.title}}</strong></h3>
-<br>
-<br>
 <small>Author: {{blog.author}}</small> | <small>Published: {{blog.period}}</small>
 <br>
 <br>
-<img class="img-fluid" src="{{ blog.images.url }}" alt="Image File"> 
+<img class="img-fluid mx-auto d-block" src="{{ blog.images.url }}" alt="Image File"> 
 <br>
 <br>
-<p>{{blog.description}}</p> 
- 
-  
-
-  
+<p>{{blog.description}}</p>
+<br>
+<hr>
+<div class="container">
+   <form action="{% url 'blog:comments' blog.id %}" method="POST" id="commentForm">
+      {% csrf_token %}
+      <p><strong>Comment Here</strong></p>
+      <textarea name="comment" id="comment" cols="30" rows="2"></textarea>
+      <br>
+      <button id="submit" type="submit" class="btn btn-sm btn-dark">Comment</button>
+   </form>
 </div>
-
-  {% endblock %}
+<br>
+<div class="container">
+   {% for comment in comments %}
+   <span><i class="fas fa-user-circle"></i></span><span class="ml-2"><strong>{{ comment.user }}</strong></span>
+   <p>{{ comment.comment }}</p>
+   {% endfor %}
+</div>
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class Blog(models.Model):  
@@ -11,4 +12,9 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
+
+class Comments(models.Model):  
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    comment = models.TextField(blank=True, null=True) 
 

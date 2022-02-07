@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.http import HttpResponse    
 from django.contrib.auth.forms import UserCreationForm
@@ -28,7 +29,7 @@ def loginPage(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('blog:writeblog') 
+            return redirect("blog:home")
         else:
             messages.error(request, "Invalid Username or Password")
     context = {}
