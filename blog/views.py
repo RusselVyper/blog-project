@@ -17,6 +17,7 @@ def detail(request, blog_id):
     context = {'blog': detailView, 'comments': comments }  
     return render(request, 'detail.html', context)
 
+
 @login_required(login_url='account:login')
 def writeBlog(request):
     if request.method == 'POST':
@@ -29,13 +30,21 @@ def writeBlog(request):
     context = {}
     return render(request, 'writeblog.html', context)
 
+
 @login_required(login_url='account:login')
 def comments(request, blog_id):
     if request.method == 'POST':
         comment = request.POST['comment']
-        Comments(comment=comment, user=request.user, blog_id=blog_id).save()
+        if comment == '':
+            messages.error(request, "Empty Comment, Please write something first and then try to Comment!!")
+        else:
+            Comments(comment=comment, user=request.user, blog_id=blog_id).save()
         if request.user.is_authenticated:
             return redirect("blog:detail", blog_id)
+        else:
+            return redirect("account:login")
+
+
 
 
 

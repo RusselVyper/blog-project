@@ -71,10 +71,26 @@
 			padding: 10px;
 			margin-top: 10px;
 		}
+		.navbar .container {
+			justify-content: center;
+		}
 	</style>
 
 </head>
 <body>
+
+	<!-- Navbar -->
+	<header>
+		<div class="navbar navbar-light bg-light shadow-sm">
+		  <div class="container text-center">
+			<a href="{% url 'blog:home' %}" class="navbar-brand text-center">
+			  <img src="{{ static_url }}logo\thinkbucket.png" alt="LOGO" height="80" width="50"> 
+			  <strong>ThinkBucket</strong>
+			</a>		
+		</div>
+		</div>
+	  </header>
+
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -85,7 +101,7 @@
 				</div>
 				<div class="d-flex justify-content-center form_container">
 					<form method="POST" action="">
-            {% csrf_token %}
+            				{% csrf_token %}
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -121,6 +137,13 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container py-5">
+		  <p class="text-center">Copyright &copy ThinkBucket 2022 </p>  
+		</div>
+	  </footer>
 </body>
 
 </html>

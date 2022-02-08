@@ -62,11 +62,28 @@
 			box-shadow: none !important;
 			outline: 0px !important;
 		}
+		
+		.navbar .container {
+			justify-content: center;
+		}
 
 	</style>
 
 </head>
 <body>
+
+	<!-- Navbar -->
+	<header>
+		<div class="navbar navbar-light bg-light shadow-sm">
+		  <div class="container text-center">
+			<a href="{% url 'blog:home' %}" class="navbar-brand d-flex align-items-center">
+			  <img src="{{ static_url }}logo\thinkbucket.png" alt="LOGO" height="80" width="50"> 
+			  <strong>ThinkBucket</strong>
+			</a>
+		</div>
+		</div>
+	  </header>
+
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -133,5 +150,12 @@
 			form_fields[field].className += ' form-control'
 		}
 	</script>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container py-5">
+		  <p class="text-center">Copyright &copy ThinkBucket 2022 </p>  
+		</div>
+	  </footer>
 </body>
 </html>
